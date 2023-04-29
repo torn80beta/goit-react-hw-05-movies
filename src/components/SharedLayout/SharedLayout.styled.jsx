@@ -30,11 +30,12 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: orangered;
+    background-color: #01b4e4;
   }
 `;
 
-export const Logo = styled.p`
-  font-weight: 700;
+export const Logo = styled.img`
+  /* font-weight: 700; */
+  width: 200px;
   margin: 0;
 `;
