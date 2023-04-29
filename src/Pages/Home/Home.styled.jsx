@@ -18,6 +18,11 @@ export const StyledPosterImg = styled.img`
 export const TrendingSectionHeaderH1 = styled.h1`
   /* display: block; */
   margin: 0px auto 30px;
+  color: inherit;
+`;
+
+export const StyledMovieTitleP = styled.p`
+  color: white;
 `;
 
 export const StyledTrendingMain = styled.main`

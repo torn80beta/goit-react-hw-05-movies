@@ -13,23 +13,27 @@ export const getTrendingMovies = async () => {
   let data;
   try {
     //   const trendingMovies = await api
-    await api.get(`/trending/all/day?api_key=${API_KEY}`).then(response => {
+    await api.get(`/trending/movie/week?api_key=${API_KEY}`).then(response => {
       // console.log(response.data.results);
       data = response.data.results;
     });
     // console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
 export const getMovieByID = async id => {
   let data;
   try {
-    await api.get(`/movie/${id}?api_key=${API_KEY}`).then(response => {
-      data = response;
-    });
+    await api
+      .get(
+        `/movie/${id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
+      )
+      .then(response => {
+        data = response;
+      });
     // console.log(data.data);
     return data.data;
   } catch (error) {

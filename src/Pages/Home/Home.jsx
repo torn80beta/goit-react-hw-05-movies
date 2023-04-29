@@ -6,6 +6,7 @@ import {
   StyledTrendingMoviesSectionUl,
   TrendingSectionHeaderH1,
   StyledTrendingMain,
+  StyledMovieTitleP,
 } from './Home.styled';
 
 const Home = () => {
@@ -37,7 +38,12 @@ const Home = () => {
                 src={`${IMAGE_BASE_URL}${movie.poster_path}`}
                 alt={`${movie.original_title}`}
               />
-              <p>{movie.original_title || movie.name}</p>
+              <StyledMovieTitleP>
+                {movie.title ||
+                  movie.name ||
+                  movie.original_name ||
+                  movie.original_title}
+              </StyledMovieTitleP>
             </Link>
           </li>
         ))}
