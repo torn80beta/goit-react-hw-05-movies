@@ -10,39 +10,39 @@ import {
 
 const Home = () => {
   const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
-  const [trendingMovies, setTrendingMovies] = useState();
+  const [trendingMovies, setTrendingMovies] = useState([]);
+
+  // const getMovies = useCallback(async () => {
+  //   setTrendingMovies(await getTrendingMovies());
+  // }, []);
 
   useEffect(() => {
     const getMovies = async () => {
-      const movies = await getTrendingMovies();
-      setTrendingMovies(movies);
+      setTrendingMovies(await getTrendingMovies());
     };
     getMovies();
   }, []);
 
-  const location = useLocation;
+  const location = useLocation();
 
   return (
-    console.log(trendingMovies),
-    (
-      <StyledTrendingMain>
-        <TrendingSectionHeaderH1>Trending movies</TrendingSectionHeaderH1>
-        <StyledTrendingMoviesSectionUl>
-          {trendingMovies &&
-            trendingMovies.map(movie => (
-              <li key={movie.id}>
-                <Link to={`${movie.id}`} state={{ from: location }}>
-                  <StyledPosterImg
-                    src={`${IMAGE_BASE_URL}${movie.poster_path}`}
-                    alt={`${movie.original_title}`}
-                  />
-                  <p>{movie.original_title || movie.name}</p>
-                </Link>
-              </li>
-            ))}
-        </StyledTrendingMoviesSectionUl>
-      </StyledTrendingMain>
-    )
+    // console.log(trendingMovies),
+    <StyledTrendingMain>
+      <TrendingSectionHeaderH1>Trending movies</TrendingSectionHeaderH1>
+      <StyledTrendingMoviesSectionUl>
+        {trendingMovies.map(movie => (
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              <StyledPosterImg
+                src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+                alt={`${movie.original_title}`}
+              />
+              <p>{movie.original_title || movie.name}</p>
+            </Link>
+          </li>
+        ))}
+      </StyledTrendingMoviesSectionUl>
+    </StyledTrendingMain>
   );
 };
 

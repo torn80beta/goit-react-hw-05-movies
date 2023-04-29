@@ -1,6 +1,6 @@
 import axios from 'axios';
 const API_KEY = '2312830e6f848d2a7194ede59058ec48';
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+// const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 // const axios = require('axios');
 
@@ -19,6 +19,19 @@ export const getTrendingMovies = async () => {
     });
     // console.log(data);
     return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getMovieByID = async id => {
+  let data;
+  try {
+    await api.get(`/movie/${id}?api_key=${API_KEY}`).then(response => {
+      data = response;
+    });
+    // console.log(data.data);
+    return data.data;
   } catch (error) {
     console.log(error);
   }
