@@ -1,4 +1,4 @@
-import { useParams, useLocation, Outlet, Link } from 'react-router-dom';
+import { useParams, useLocation, Outlet, NavLink } from 'react-router-dom';
 import BackLink from 'components/BackLink/BackLink';
 import { getMovieByID } from 'api/api';
 import { useEffect, useState } from 'react';
@@ -32,16 +32,24 @@ const MovieDetails = () => {
     setGenres(movieGenres.map(genre => genre.name).join(', '));
   }, [movie]);
 
+  // console.log(location);
   return (
     <main>
       <BackLink to={backLinkHref}>Back to movies</BackLink>
       <MovieCard genres={genres} data={movie} />
       <ul>
         <li>
-          <Link to="cast">Cast: </Link>
+          <NavLink to="cast" state={{ from: location.state.from, movieid: id }}>
+            Cast:{' '}
+          </NavLink>
         </li>
         <li>
-          <Link to="reviews">Reviews: </Link>
+          <NavLink
+            to="reviews"
+            state={{ from: location.state.from, movieid: id }}
+          >
+            Reviews:{' '}
+          </NavLink>
         </li>
       </ul>
       {/* <Suspense fallback={<div>Loading subpage...</div>}> */}

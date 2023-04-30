@@ -1,8 +1,5 @@
 import axios from 'axios';
 const API_KEY = '2312830e6f848d2a7194ede59058ec48';
-// const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
-
-// const axios = require('axios');
 
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -20,7 +17,7 @@ export const getTrendingMovies = async () => {
     // console.log(data);
     return data;
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
 };
 
@@ -36,6 +33,34 @@ export const getMovieByID = async id => {
       });
     // console.log(data.data);
     return data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getMovieCast = async id => {
+  let data;
+  try {
+    await api
+      .get(`/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
+      .then(response => (data = response.data.cast));
+    // console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getMovieReviews = async id => {
+  let data;
+  try {
+    await api
+      .get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+      .then(response => {
+        data = response.data.results;
+      });
+    return data;
+    // console.log(data);
   } catch (error) {
     console.log(error);
   }
