@@ -6,6 +6,7 @@ import MoviesSection from 'components/MoviesSection/MoviesSection';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const location = useLocation();
 
   // const getMovies = useCallback(async () => {
   //   setTrendingMovies(await getTrendingMovies());
@@ -17,8 +18,6 @@ const Home = () => {
     };
     getMovies();
   }, []);
-
-  const location = useLocation();
 
   return (
     // console.log(trendingMovies),

@@ -71,8 +71,8 @@ export const searchMovie = async query => {
   try {
     await api
       .get(`/search/movie?api_key=${API_KEY}&${query}`)
-      .then(response => (data = response));
-    console.log(data);
+      .then(response => (data = response.data.results));
+    // console.log(data);
     return data;
   } catch (error) {
     console.log(error);

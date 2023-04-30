@@ -1,11 +1,13 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { searchMovie } from 'api/api';
+import MoviesSection from 'components/MoviesSection/MoviesSection';
 
 const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams('');
+  const location = useLocation();
   // const searchedName = searchParams.get('query') ?? '';
 
   const updateQueryString = query => {
@@ -59,6 +61,7 @@ const Movies = () => {
           </Form>
         )}
       </Formik>
+      <MoviesSection movies={searchedMovies} location={location} />
     </main>
   );
 };
