@@ -25,7 +25,7 @@ const Movies = () => {
     }
     try {
       const getSearch = async () => {
-        console.log('fetching');
+        // console.log('fetching');
         setSearchedMovies(await searchMovie(searchParams));
       };
       getSearch();

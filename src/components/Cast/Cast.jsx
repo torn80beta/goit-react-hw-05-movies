@@ -21,23 +21,21 @@ const Cast = () => {
 
   //   console.log(location.state.movieid);
   return (
-    console.log(cast),
-    (
-      <section>
-        <h2>Cast:</h2>
-        <ul>
-          {cast.map(person => (
-            <li key={person.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
-                alt={`${person.name}`}
-              />
-              <p>{person.name}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
+    // console.log(cast),
+    <section>
+      <h2>Cast:</h2>
+      <ul>
+        {cast.map(person => (
+          <li key={person.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+              alt={`${person.name}`}
+            />
+            <p>{person.name}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
 
