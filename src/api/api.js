@@ -65,3 +65,16 @@ export const getMovieReviews = async id => {
     console.log(error);
   }
 };
+
+export const searchMovie = async query => {
+  let data;
+  try {
+    await api
+      .get(`/search/movie?api_key=${API_KEY}&${query}`)
+      .then(response => (data = response));
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
