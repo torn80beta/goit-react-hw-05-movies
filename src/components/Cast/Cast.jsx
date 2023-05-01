@@ -27,11 +27,15 @@ const Cast = () => {
       <ul>
         {cast.map(person => (
           <li key={person.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
-              alt={`${person.name}`}
-            />
-            <p>{person.name}</p>
+            {person.profile_path && (
+              <>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                  alt={`${person.name}`}
+                />
+                <p>{person.name}</p>
+              </>
+            )}
           </li>
         ))}
       </ul>
