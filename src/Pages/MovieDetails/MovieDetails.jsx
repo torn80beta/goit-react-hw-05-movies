@@ -4,7 +4,6 @@ import { getMovieByID } from 'api/api';
 import { useEffect, useState } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
 // import { Suspense } from 'react';
-// import { StyledMovieCardDiv } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
@@ -28,8 +27,10 @@ const MovieDetails = () => {
     if (!movie.genres) {
       return;
     }
-    const movieGenres = movie.genres;
-    setGenres(movieGenres.map(genre => genre.name).join(', '));
+    // console.log(movie.genres);
+    // const movieGenres = movie.genres;
+    // setGenres(movieGenres.map(genre => genre.name)).join(', ')
+    setGenres(movie.genres);
   }, [movie]);
 
   // console.log(location);

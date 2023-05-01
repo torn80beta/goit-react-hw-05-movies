@@ -22,7 +22,9 @@ const Home = () => {
   return (
     // console.log(trendingMovies),
     <StyledTrendingMain>
-      <TrendingSectionHeaderH1>Trending movies</TrendingSectionHeaderH1>
+      <TrendingSectionHeaderH1>
+        Trending movies of the week
+      </TrendingSectionHeaderH1>
       <MoviesSection movies={trendingMovies} location={location} />
     </StyledTrendingMain>
   );

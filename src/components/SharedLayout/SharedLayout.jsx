@@ -6,10 +6,9 @@ const SharedLayout = () => {
   return (
     <Container>
       <Header>
-        {/* <Logo> */}
-        <Logo src={blue_long_1} alt="logo" />
-        {/* MOVIE DB */}
-        {/* </Logo> */}
+        <a href="http://localhost:3000/goit-react-hw-05-movies">
+          <Logo src={blue_long_1} alt="logo" />
+        </a>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>
