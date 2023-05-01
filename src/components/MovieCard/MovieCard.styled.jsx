@@ -1,18 +1,27 @@
 import styled from '@emotion/styled';
 
+export const StyledMovieCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 70%;
+  margin: 0px auto;
+  padding: 20px;
+`;
+
 export const StyledMovieCardDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: top;
   justify-content: space-around;
+  gap: 40px;
   max-width: 70%;
-  padding: 20px 40px 40px;
-  margin: 0px auto 40px;
-  /* border-bottom: 1px solid black; */
+  margin: 0px auto;
 `;
 
 export const StyledPosterImg = styled.img`
   width: 400px;
+  height: 100%;
   border-radius: 15px;
 `;
 
@@ -20,8 +29,8 @@ export const StyledInfoDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
-  gap: 30px;
+  justify-content: space-between;
+  /* gap: 18px; */
 `;
 
 export const StyledTitleH2 = styled.h2`
@@ -63,6 +72,7 @@ export const StyledGenreP = styled.li`
   padding: 0.4em 1.6em;
   border-radius: 0.4em;
   font-weight: 300;
+  text-align: center;
 `;
 
 export const StyledPlotP = styled.p`
