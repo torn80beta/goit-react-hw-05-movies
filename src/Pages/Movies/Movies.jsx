@@ -1,8 +1,13 @@
 import { useSearchParams, useLocation } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { useEffect, useState } from 'react';
 import { searchMovie } from 'api/api';
 import MoviesSection from 'components/MoviesSection/MoviesSection';
+import {
+  StyledMoviesMain,
+  StyledInputField,
+  StyledSearchButton,
+} from './Movies.styled';
 
 const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -35,8 +40,8 @@ const Movies = () => {
   }, [searchParams]);
 
   return (
-    <main>
-      <h2>Movies</h2>
+    <StyledMoviesMain>
+      {/* <h2>Search movies</h2> */}
       <Formik
         initialValues={{ query: '' }}
         onSubmit={(values, { setSubmitting }) => {
@@ -49,20 +54,21 @@ const Movies = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Field
+            <StyledInputField
               type="text"
               name="query"
+              placeholder="Search movie..."
               // value={searchedName}
               // onChange={e => updateQueryString(e.target.value)}
             />
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
+            <StyledSearchButton type="submit" disabled={isSubmitting}>
+              Search
+            </StyledSearchButton>
           </Form>
         )}
       </Formik>
       <MoviesSection movies={searchedMovies} location={location} />
-    </main>
+    </StyledMoviesMain>
   );
 };
 

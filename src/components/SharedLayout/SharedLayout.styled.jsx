@@ -31,11 +31,18 @@ export const Link = styled(NavLink)`
   &.active {
     color: white;
     background-color: #01b4e4;
+    &:hover {
+      background-color: #90cea1;
+      color: white;
+    }
+  }
+
+  &:hover {
+    color: #90cea1;
   }
 `;
 
 export const Logo = styled.img`
-  /* font-weight: 700; */
   width: 200px;
   margin: 0;
 `;
