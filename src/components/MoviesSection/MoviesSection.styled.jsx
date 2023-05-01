@@ -17,9 +17,16 @@ export const StyledMovieWrapper = styled.div`
   max-width: 300px;
 `;
 
+export const StyledPosterWrapper = styled.div`
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  /* overflow: hidden; */
+`;
+
 export const StyledPosterImg = styled.img`
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   transform: scale(1);
   transition: transform 250ms;
 

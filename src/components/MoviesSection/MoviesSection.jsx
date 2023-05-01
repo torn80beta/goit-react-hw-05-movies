@@ -4,6 +4,7 @@ import {
   StyledPosterImg,
   StyledMovieTitleP,
   StyledMovieWrapper,
+  StyledPosterWrapper,
 } from './MoviesSection.styled';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -14,10 +15,12 @@ const MoviesSection = ({ movies, location }) => {
         <li key={movie.id}>
           <Link to={`/movies/${movie.id}`} state={{ from: location }}>
             <StyledMovieWrapper>
-              <StyledPosterImg
-                src={`${IMAGE_BASE_URL}${movie.poster_path}`}
-                alt={`${movie.original_title}`}
-              />
+              <StyledPosterWrapper>
+                <StyledPosterImg
+                  src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+                  alt={`${movie.original_title}`}
+                />
+              </StyledPosterWrapper>
               <StyledMovieTitleP>
                 {movie.title ||
                   movie.name ||
