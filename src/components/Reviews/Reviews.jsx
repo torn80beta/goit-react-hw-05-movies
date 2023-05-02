@@ -1,7 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import { getMovieReviews } from 'api/api';
 import { useEffect, useState } from 'react';
-import { StyledReviewLi, StyledReviewsUl } from './Reviews.styled';
+import {
+  StyledReviewLi,
+  StyledReviewsUl,
+  StyledReviewNotification,
+} from './Reviews.styled';
 
 const Reviews = () => {
   const location = useLocation();
@@ -23,16 +27,21 @@ const Reviews = () => {
     console.log(reviews),
     (
       <section>
-        {/* <h2>Reviews</h2> */}
-        <StyledReviewsUl>
-          {reviews.map(review => (
-            <StyledReviewLi key={review.id}>
-              <h3>{review.author}</h3>
-              <p>{review.created_at}</p>
-              <p>{review.content}</p>
-            </StyledReviewLi>
-          ))}
-        </StyledReviewsUl>
+        {(!reviews.length && (
+          <StyledReviewNotification>
+            We don't have any reviews for this movie
+          </StyledReviewNotification>
+        )) || (
+          <StyledReviewsUl>
+            {reviews.map(review => (
+              <StyledReviewLi key={review.id}>
+                <h3>{review.author}</h3>
+                <p>{review.created_at}</p>
+                <p>{review.content}</p>
+              </StyledReviewLi>
+            ))}
+          </StyledReviewsUl>
+        )}
       </section>
     )
   );
