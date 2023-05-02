@@ -3,7 +3,11 @@ import BackLink from 'components/BackLink/BackLink';
 import { getMovieByID } from 'api/api';
 import { useEffect, useState } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
-import { StyledNavLink, StyledCastEevWrapperUl } from './MovieDetails.styled';
+import {
+  StyledNavLink,
+  StyledCastRevWrapperUl,
+  StyledMovieDetailsMain,
+} from './MovieDetails.styled';
 // import { Suspense } from 'react';
 
 const MovieDetails = () => {
@@ -36,10 +40,10 @@ const MovieDetails = () => {
 
   // console.log(location);
   return (
-    <main>
+    <StyledMovieDetailsMain>
       <BackLink to={backLinkHref}>Back to movies</BackLink>
       <MovieCard genres={genres} data={movie} />
-      <StyledCastEevWrapperUl>
+      <StyledCastRevWrapperUl>
         <li>
           <StyledNavLink
             to="cast"
@@ -56,11 +60,11 @@ const MovieDetails = () => {
             Reviews
           </StyledNavLink>
         </li>
-      </StyledCastEevWrapperUl>
+      </StyledCastRevWrapperUl>
       {/* <Suspense fallback={<div>Loading subpage...</div>}> */}
       <Outlet />
       {/* </Suspense> */}
-    </main>
+    </StyledMovieDetailsMain>
   );
 };
 

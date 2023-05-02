@@ -1,7 +1,15 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const StyledCastEevWrapperUl = styled.ul`
+export const StyledMovieDetailsMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 0px auto 40px;
+  gap: 10px;
+`;
+
+export const StyledCastRevWrapperUl = styled.ul`
   display: flex;
   justify-content: center;
   gap: 20px;

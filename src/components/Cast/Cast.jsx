@@ -1,6 +1,7 @@
 import { getMovieCast } from 'api/api';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { StyledCastSection, StyledActorLi, StyledCastUl } from './Cast.styled';
 
 const Cast = () => {
   const location = useLocation();
@@ -22,11 +23,11 @@ const Cast = () => {
   //   console.log(location.state.movieid);
   return (
     // console.log(cast),
-    <section>
-      <h2>Cast:</h2>
-      <ul>
+    <StyledCastSection>
+      {/* <h2>Cast:</h2> */}
+      <StyledCastUl>
         {cast.map(person => (
-          <li key={person.id}>
+          <StyledActorLi key={person.id}>
             {person.profile_path && (
               <>
                 <img
@@ -36,10 +37,10 @@ const Cast = () => {
                 <p>{person.name}</p>
               </>
             )}
-          </li>
+          </StyledActorLi>
         ))}
-      </ul>
-    </section>
+      </StyledCastUl>
+    </StyledCastSection>
   );
 };
 
