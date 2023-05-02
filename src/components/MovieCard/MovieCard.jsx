@@ -19,7 +19,7 @@ const MovieCard = ({ genres, data }) => {
   const [trailer, setTrailer] = useState('');
 
   useEffect(() => {
-    if (!videos) {
+    if (!videos || !videos.results.length) {
       return;
     }
     const trailers = videos.results;
