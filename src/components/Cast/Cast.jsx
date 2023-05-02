@@ -12,7 +12,7 @@ const Cast = () => {
     try {
       const getCast = async () => {
         const slicedCast = await getMovieCast(movieId);
-        setCast(slicedCast.slice(0, 9));
+        setCast(slicedCast.slice(0, 14));
       };
       getCast();
     } catch (error) {
@@ -29,13 +29,13 @@ const Cast = () => {
         {cast.map(person => (
           <StyledActorLi key={person.id}>
             {person.profile_path && (
-              <>
+              <div>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
                   alt={`${person.name}`}
                 />
                 <p>{person.name}</p>
-              </>
+              </div>
             )}
           </StyledActorLi>
         ))}
