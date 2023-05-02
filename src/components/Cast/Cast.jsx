@@ -11,8 +11,9 @@ const Cast = () => {
   useEffect(() => {
     try {
       const getCast = async () => {
-        const slicedCast = await getMovieCast(movieId);
-        setCast(slicedCast.slice(0, 14));
+        const actors = await getMovieCast(movieId);
+        const normalizedCast = actors.filter(actor => actor.profile_path);
+        setCast(normalizedCast.slice(0, 14));
       };
       getCast();
     } catch (error) {

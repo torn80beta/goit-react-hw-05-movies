@@ -20,19 +20,21 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    // console.log(reviews),
-    <section>
-      {/* <h2>Reviews</h2> */}
-      <StyledReviewsUl>
-        {reviews.map(review => (
-          <StyledReviewLi key={review.id}>
-            <h3>{review.author}</h3>
-            <p>{review.created_at}</p>
-            <p>{review.content}</p>
-          </StyledReviewLi>
-        ))}
-      </StyledReviewsUl>
-    </section>
+    console.log(reviews),
+    (
+      <section>
+        {/* <h2>Reviews</h2> */}
+        <StyledReviewsUl>
+          {reviews.map(review => (
+            <StyledReviewLi key={review.id}>
+              <h3>{review.author}</h3>
+              <p>{review.created_at}</p>
+              <p>{review.content}</p>
+            </StyledReviewLi>
+          ))}
+        </StyledReviewsUl>
+      </section>
+    )
   );
 };
 
