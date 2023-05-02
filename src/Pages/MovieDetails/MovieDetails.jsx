@@ -9,6 +9,8 @@ import {
   StyledMovieDetailsMain,
 } from './MovieDetails.styled';
 import { Suspense } from 'react';
+import { StyledLoadSpinner } from 'utils/LoadSpinner.styled';
+import { RotatingLines } from 'react-loader-spinner';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -61,7 +63,19 @@ const MovieDetails = () => {
           </StyledNavLink>
         </li>
       </StyledCastRevWrapperUl>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <StyledLoadSpinner>
+            <RotatingLines
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="96"
+              visible={true}
+            />
+          </StyledLoadSpinner>
+        }
+      >
         <Outlet />
       </Suspense>
     </StyledMovieDetailsMain>
