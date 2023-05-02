@@ -23,10 +23,11 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 300;
   text-align: center;
   color: inherit;
+  background-color: #1e2428;
   &:hover {
-    background-color: #01b4e4;
+    background-color: #5e7464;
   }
   &:focus {
-    background-color: #01b4e4;
+    background-color: #5e7464;
   }
 `;
