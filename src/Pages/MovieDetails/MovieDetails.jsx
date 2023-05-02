@@ -8,7 +8,7 @@ import {
   StyledCastRevWrapperUl,
   StyledMovieDetailsMain,
 } from './MovieDetails.styled';
-// import { Suspense } from 'react';
+import { Suspense } from 'react';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
@@ -61,9 +61,9 @@ const MovieDetails = () => {
           </StyledNavLink>
         </li>
       </StyledCastRevWrapperUl>
-      {/* <Suspense fallback={<div>Loading subpage...</div>}> */}
-      <Outlet />
-      {/* </Suspense> */}
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </StyledMovieDetailsMain>
   );
 };
