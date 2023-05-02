@@ -20,3 +20,8 @@ export const StyledActorLi = styled.li`
   width: 150px;
   gap: 5px;
 `;
+
+export const StyledNoCastNotification = styled.p`
+  text-align: center;
+  margin: 40px auto;
+`;
