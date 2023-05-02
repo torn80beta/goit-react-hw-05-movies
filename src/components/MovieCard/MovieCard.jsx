@@ -12,6 +12,7 @@ import {
   StyledMovieCardWrapper,
 } from './MovieCard.styled';
 import { TiStarFullOutline } from 'react-icons/ti';
+import PropTypes from 'prop-types';
 
 const MovieCard = ({ genres, data }) => {
   const { title, vote_average, overview, release_date, poster_path, videos } =
@@ -28,7 +29,7 @@ const MovieCard = ({ genres, data }) => {
   }, [videos]);
 
   return (
-    // console.log(data),
+    // console.log(typeof data),
     <StyledMovieCardWrapper>
       <StyledMovieCardDiv>
         <StyledPosterImg
@@ -71,3 +72,8 @@ const MovieCard = ({ genres, data }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  genres: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};

@@ -30,7 +30,6 @@ const Movies = () => {
     }
     try {
       const getSearch = async () => {
-        // console.log('fetching');
         setSearchedMovies(await searchMovie(searchParams));
       };
       getSearch();
@@ -41,7 +40,6 @@ const Movies = () => {
 
   return (
     <StyledMoviesMain>
-      {/* <h2>Search movies</h2> */}
       <Formik
         initialValues={{ query: '' }}
         onSubmit={(values, { setSubmitting }) => {

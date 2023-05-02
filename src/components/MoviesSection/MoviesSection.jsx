@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   StyledMoviesSectionUl,
   StyledPosterImg,
@@ -10,6 +11,7 @@ const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const MoviesSection = ({ movies, location }) => {
   return (
+    // console.log(location),
     <StyledMoviesSectionUl>
       {movies.map(movie => (
         <li key={movie.id}>
@@ -36,3 +38,8 @@ const MoviesSection = ({ movies, location }) => {
 };
 
 export default MoviesSection;
+
+MoviesSection.propTypes = {
+  movies: PropTypes.array.isRequired,
+  location: PropTypes.object.isRequired,
+};

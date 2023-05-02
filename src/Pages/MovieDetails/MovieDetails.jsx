@@ -11,8 +11,8 @@ import {
 import { Suspense } from 'react';
 
 const MovieDetails = () => {
-  const [movie, setMovie] = useState([]);
-  const [genres, setGenres] = useState('');
+  const [movie, setMovie] = useState({});
+  const [genres, setGenres] = useState([]);
   const { id } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
@@ -61,7 +61,7 @@ const MovieDetails = () => {
           </StyledNavLink>
         </li>
       </StyledCastRevWrapperUl>
-      <Suspense fallback={<div>Loading subpage...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
     </StyledMovieDetailsMain>
