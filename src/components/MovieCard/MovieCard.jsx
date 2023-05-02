@@ -13,6 +13,7 @@ import {
 } from './MovieCard.styled';
 import { TiStarFullOutline } from 'react-icons/ti';
 import PropTypes from 'prop-types';
+import no_poster_cr from '../../images/no_poster_cr.jpg';
 
 const MovieCard = ({ genres, data }) => {
   const { title, vote_average, overview, release_date, poster_path, videos } =
@@ -33,7 +34,10 @@ const MovieCard = ({ genres, data }) => {
     <StyledMovieCardWrapper>
       <StyledMovieCardDiv>
         <StyledPosterImg
-          src={`https://image.tmdb.org/t/p/w400${poster_path}`}
+          src={
+            (poster_path && `https://image.tmdb.org/t/p/w400${poster_path}`) ||
+            no_poster_cr
+          }
           alt={title}
         />
         <StyledInfoDiv>
