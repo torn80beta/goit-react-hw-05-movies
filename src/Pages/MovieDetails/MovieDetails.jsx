@@ -1,8 +1,9 @@
-import { useParams, useLocation, Outlet, NavLink } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import BackLink from 'components/BackLink/BackLink';
 import { getMovieByID } from 'api/api';
 import { useEffect, useState } from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
+import { StyledNavLink, StyledCastEevWrapperUl } from './MovieDetails.styled';
 // import { Suspense } from 'react';
 
 const MovieDetails = () => {
@@ -38,21 +39,24 @@ const MovieDetails = () => {
     <main>
       <BackLink to={backLinkHref}>Back to movies</BackLink>
       <MovieCard genres={genres} data={movie} />
-      <ul>
+      <StyledCastEevWrapperUl>
         <li>
-          <NavLink to="cast" state={{ from: location.state.from, movieid: id }}>
-            Cast:{' '}
-          </NavLink>
+          <StyledNavLink
+            to="cast"
+            state={{ from: location.state.from, movieid: id }}
+          >
+            Cast
+          </StyledNavLink>
         </li>
         <li>
-          <NavLink
+          <StyledNavLink
             to="reviews"
             state={{ from: location.state.from, movieid: id }}
           >
-            Reviews:{' '}
-          </NavLink>
+            Reviews
+          </StyledNavLink>
         </li>
-      </ul>
+      </StyledCastEevWrapperUl>
       {/* <Suspense fallback={<div>Loading subpage...</div>}> */}
       <Outlet />
       {/* </Suspense> */}
