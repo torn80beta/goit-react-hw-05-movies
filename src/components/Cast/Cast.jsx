@@ -1,6 +1,6 @@
 import { getMovieCast } from 'api/api';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import {
   StyledCastSection,
   StyledActorLi,
@@ -10,10 +10,14 @@ import {
 
 const Cast = () => {
   const location = useLocation();
-  const movieId = location.state.movieid;
+  const params = useParams();
+  const movieId = !location.state ? Number(params) : location.state.movieid;
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
+    if (!movieId) {
+      return;
+    }
     try {
       const getCast = async () => {
         const actors = await getMovieCast(movieId);

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { getMovieReviews } from 'api/api';
 import { useEffect, useState } from 'react';
 import {
@@ -9,10 +9,14 @@ import {
 
 const Reviews = () => {
   const location = useLocation();
-  const movieId = location.state.movieid;
+  const params = useParams();
+  const movieId = !location.state ? Number(params) : location.state.movieid;
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    if (!movieId) {
+      return;
+    }
     try {
       const getReviews = async () => {
         setReviews(await getMovieReviews(movieId));
@@ -24,7 +28,7 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    // console.log(reviews),
+    // console.log(movieId),
     <section>
       {(!reviews.length && (
         <StyledReviewNotification>

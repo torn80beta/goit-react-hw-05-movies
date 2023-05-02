@@ -17,7 +17,7 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState([]);
   const { id } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = location.state?.from ?? { pathname: '/' };
 
   useEffect(() => {
     try {
@@ -34,9 +34,6 @@ const MovieDetails = () => {
     if (!movie.genres) {
       return;
     }
-    // console.log(movie.genres);
-    // const movieGenres = movie.genres;
-    // setGenres(movieGenres.map(genre => genre.name)).join(', ')
     setGenres(movie.genres);
   }, [movie]);
 
@@ -47,17 +44,14 @@ const MovieDetails = () => {
       <MovieCard genres={genres} data={movie} />
       <StyledCastRevWrapperUl>
         <li>
-          <StyledNavLink
-            to="cast"
-            state={{ from: location.state.from, movieid: id }}
-          >
+          <StyledNavLink to="cast" state={{ from: backLinkHref, movieid: id }}>
             Cast
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink
             to="reviews"
-            state={{ from: location.state.from, movieid: id }}
+            state={{ from: backLinkHref, movieid: id }}
           >
             Reviews
           </StyledNavLink>
