@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    // console.log(trendingMovies),
+    // console.log(),
     <StyledTrendingMain>
       <TrendingSectionHeaderH1>
         Trending movies of the week
