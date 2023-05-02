@@ -33,7 +33,7 @@ const MovieCard = ({ genres, data }) => {
     <StyledMovieCardWrapper>
       <StyledMovieCardDiv>
         <StyledPosterImg
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={`https://image.tmdb.org/t/p/w400${poster_path}`}
           alt={title}
         />
         <StyledInfoDiv>

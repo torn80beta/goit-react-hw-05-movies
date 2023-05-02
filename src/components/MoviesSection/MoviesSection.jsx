@@ -7,7 +7,7 @@ import {
   StyledMovieWrapper,
   StyledPosterWrapper,
 } from './MoviesSection.styled';
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w300';
 
 const MoviesSection = ({ movies, location }) => {
   return (
