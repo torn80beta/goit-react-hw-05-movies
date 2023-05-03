@@ -21,16 +21,16 @@ const MovieCard = ({ genres, data }) => {
   const [trailer, setTrailer] = useState('');
 
   useEffect(() => {
-    if (!videos || !videos.results.length) {
-      return;
+    if (videos && videos.results.length > 0) {
+      const trailers = videos.results;
+      const trailerId = trailers[trailers.length - 1].key;
+      setTrailer(trailerId);
     }
-    const trailers = videos.results;
-    const trailerId = trailers[trailers.length - 1].key;
-    setTrailer(trailerId);
   }, [videos]);
 
   return (
-    // console.log(typeof data),
+    // console.log(trailer),
+    // console.log(videos),
     <StyledMovieCardWrapper>
       <StyledMovieCardDiv>
         <StyledPosterImg

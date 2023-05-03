@@ -4,7 +4,7 @@ import { StyledNotFoundP } from './NotFound.styled';
 const NotFound = () => {
   return (
     <>
-      <BackLink>Back to home page</BackLink>
+      <BackLink to={{ pathname: '/' }}>Back to home page</BackLink>
       <StyledNotFoundP>Page not found ¯\_(ツ)_/¯</StyledNotFoundP>
     </>
   );
