@@ -47,57 +47,57 @@ const MovieDetails = () => {
 
   // console.log(location);
   return (
-    console.log(movie),
+    // console.log(movie),
     (error && <NotFound />) ||
-      (movie.id && (
-        <StyledMovieDetailsMain>
-          <BackLink to={backLinkHref}>Back to movies</BackLink>
-          <MovieCard genres={genres} data={movie} />
-          <StyledCastRevWrapperUl>
-            <li>
-              <StyledNavLink
-                to="cast"
-                state={{ from: backLinkHref, movieid: id }}
-              >
-                Cast
-              </StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink
-                to="reviews"
-                state={{ from: backLinkHref, movieid: id }}
-              >
-                Reviews
-              </StyledNavLink>
-            </li>
-          </StyledCastRevWrapperUl>
-          <Suspense
-            fallback={
-              <StyledLoadSpinner>
-                <RotatingLines
-                  strokeColor="grey"
-                  strokeWidth="5"
-                  animationDuration="0.75"
-                  width="96"
-                  visible={true}
-                />
-              </StyledLoadSpinner>
-            }
-          >
-            <Outlet />
-          </Suspense>
-        </StyledMovieDetailsMain>
-      )) || (
-        <StyledLoadSpinner>
-          <RotatingLines
-            strokeColor="grey"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="96"
-            visible={true}
-          />
-        </StyledLoadSpinner>
-      )
+    (movie.id && (
+      <StyledMovieDetailsMain>
+        <BackLink to={backLinkHref}>Back to movies</BackLink>
+        <MovieCard genres={genres} data={movie} />
+        <StyledCastRevWrapperUl>
+          <li>
+            <StyledNavLink
+              to="cast"
+              state={{ from: backLinkHref, movieid: id }}
+            >
+              Cast
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink
+              to="reviews"
+              state={{ from: backLinkHref, movieid: id }}
+            >
+              Reviews
+            </StyledNavLink>
+          </li>
+        </StyledCastRevWrapperUl>
+        <Suspense
+          fallback={
+            <StyledLoadSpinner>
+              <RotatingLines
+                strokeColor="grey"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="96"
+                visible={true}
+              />
+            </StyledLoadSpinner>
+          }
+        >
+          <Outlet />
+        </Suspense>
+      </StyledMovieDetailsMain>
+    )) || (
+      <StyledLoadSpinner>
+        <RotatingLines
+          strokeColor="grey"
+          strokeWidth="5"
+          animationDuration="0.75"
+          width="96"
+          visible={true}
+        />
+      </StyledLoadSpinner>
+    )
   );
 };
 
