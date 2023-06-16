@@ -38,6 +38,20 @@ const Movies = () => {
     }
   }, [searchParams]);
 
+  const handleScrollPosition = () => {
+    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition));
+      sessionStorage.removeItem('scrollPosition');
+    }
+  };
+
+  useEffect(() => {
+    if (searchedMovies.length !== 0) {
+      handleScrollPosition();
+    }
+  }, [searchedMovies]);
+
   return (
     <StyledMoviesMain>
       <Formik

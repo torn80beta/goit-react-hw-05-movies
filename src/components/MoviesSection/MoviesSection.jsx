@@ -11,12 +11,20 @@ import no_poster_cr from '../../images/no_poster_cr.jpg';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w300';
 
 const MoviesSection = ({ movies, location }) => {
+  const handleClick = e => {
+    sessionStorage.setItem('scrollPosition', window.scrollY);
+  };
+
   return (
     // console.log(location),
     <StyledMoviesSectionUl>
       {movies.map(movie => (
         <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+          <Link
+            to={`/movies/${movie.id}`}
+            state={{ from: location }}
+            onClick={handleClick}
+          >
             <StyledMovieWrapper>
               <StyledPosterWrapper>
                 <StyledPosterImg
