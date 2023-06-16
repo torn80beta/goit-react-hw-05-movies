@@ -19,8 +19,22 @@ const Home = () => {
     getMovies();
   }, []);
 
+  const handleScrollPosition = () => {
+    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition));
+      sessionStorage.removeItem('scrollPosition');
+    }
+  };
+
+  useEffect(() => {
+    if (trendingMovies.length !== 0) {
+      handleScrollPosition();
+    }
+  }, [trendingMovies]);
+
   return (
-    // console.log(),
+    // console.log(location),
     <StyledTrendingMain>
       <TrendingSectionHeaderH1>
         Trending movies of the week
